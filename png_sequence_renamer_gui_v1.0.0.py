@@ -21,7 +21,7 @@ import zipfile
 
 # Version information
 __version__ = "1.0.0"
-__author__ = "Gourav Bhagat"
+__author__ = "Your Name"
 UPDATE_CHECK_URL = "https://api.github.com/repos/gouravbhagat20/png-sequence-renamer/releases/latest"
 DOWNLOAD_URL = "https://github.com/gouravbhagat20/png-sequence-renamer/releases/latest/download/"
 
