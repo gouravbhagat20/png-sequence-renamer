@@ -15,6 +15,15 @@
 
 No Python installation required! Just download the `.exe` file and run it.
 
+# 1. Install PyInstaller
+pip install pyinstaller
+
+# 2. Verify it's installed
+pip show pyinstaller
+
+# 3. Build your executable
+python -m PyInstaller --onefile --windowed --name="PNG-Sequence-Renamer-v1.0.0" png_sequence_renamer_gui_v1.0.0.py
+
 ## Screenshots
 ![PNG Renamer Interface](screenshot.png)
 
