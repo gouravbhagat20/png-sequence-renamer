@@ -11,7 +11,7 @@
 - ✅ Cross-platform support (Windows/Mac/Linux)
 
 ## Download
-👉 **[Download Latest Release](https://github.com/gouravbhagat20/png-sequence-renamer/releases/latest)**
+**[Download Latest Release](https://github.com/gouravbhagat20/png-sequence-renamer/releases/latest)**
 
 No Python installation required! Just download the `.exe` file and run it.
 
