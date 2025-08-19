@@ -301,12 +301,12 @@ class PNGRenamerGUI:
         preview_frame.columnconfigure(0, weight=1)
         preview_frame.rowconfigure(0, weight=1)
         
-        # Treeview for preview with colorful styling
+        # Treeview for preview with enhanced styling
         self.preview_tree = ttk.Treeview(preview_frame, columns=('old', 'new'), show='headings', height=10)
-        self.preview_tree.heading('old', text='📁 Current Name')
-        self.preview_tree.heading('new', text='✨ New Name')
-        self.preview_tree.column('old', width=350)
-        self.preview_tree.column('new', width=350)
+        self.preview_tree.heading('old', text='🔴 Current Name')
+        self.preview_tree.heading('new', text='🟢 New Name')
+        self.preview_tree.column('old', width=350, anchor='w')
+        self.preview_tree.column('new', width=350, anchor='w')
         
         # Configure colorful tags for the treeview
         self.preview_tree.tag_configure('old_file', background='#FFE6E6', foreground='#8B0000')
@@ -386,19 +386,16 @@ class PNGRenamerGUI:
                 messagebox.showerror("Collision Error", collision_msg)
                 return
             
-            # Populate preview with alternating colors
+            # Populate preview with better visual distinction
             for i, (old_path, new_name) in enumerate(self.current_renames):
-                # Determine row tags for coloring
-                tags = []
-                if i % 2 == 1:  # Alternate row background
-                    tags.append('alternate')
+                # Determine row styling
+                tag = 'even_row' if i % 2 == 0 else 'odd_row'
                 
-                # Insert with color-coded values
-                item_id = self.preview_tree.insert('', 'end', values=(old_path.name, new_name), tags=tags)
+                # Insert with enhanced formatting
+                old_display = f"📄 {old_path.name}"
+                new_display = f"✨ {new_name}"
                 
-                # Apply cell-specific styling by configuring the item
-                self.preview_tree.set(item_id, 'old', f"🔴 {old_path.name}")  # Red circle for old
-                self.preview_tree.set(item_id, 'new', f"🟢 {new_name}")       # Green circle for new
+                self.preview_tree.insert('', 'end', values=(old_display, new_display), tags=(tag,))
             
             self.status_var.set(f"✅ Preview ready: {len(self.current_renames)} files to rename")
         
